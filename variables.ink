@@ -67,6 +67,7 @@ VAR gate_permiss = false
         * [Нужно вернуться к Лизе]
         -> DONE
 }
+
 === guard_talk ===
 {
     - ezh_fed == false:
