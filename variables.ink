@@ -1,9 +1,9 @@
-VAR know_key = "0"
-VAR has_key = "0"
-VAR has_apple = "0"
-VAR ezh_fed = "0"
-VAR btn_active = "0"
-VAR gate_permiss = "0"
+VAR know_key = false
+VAR has_key = false
+VAR has_apple = false
+VAR ezh_fed = false
+VAR btn_active = false
+VAR gate_permiss = false
 
 -> start
 
@@ -13,7 +13,7 @@ VAR gate_permiss = "0"
 -> DONE
 
 === ezh_talk ===
-{ has_apple == "1":
+{ has_apple == true:
     Еж: Какое вкусное зеленое яблоко! Спасибо, что накромил меня. Ищи робота Лизу, скажи, что Еж передает привет, она объяснит тебе, что делать.
         * [Хорошо, поищу Лизу!]        
         -> DONE
@@ -35,7 +35,7 @@ VAR gate_permiss = "0"
 -> DONE
 
 === key_logic ===
-{ know_key == "1":
+{ know_key == true:
     Игра: В траве блестел золотой ключик, и вы смогли его подобрать. Ключ взят, можно открывать ворота к яблокам!
     * [Ура! Скоро Еж поест яблочко!]
     -> DONE
@@ -46,7 +46,7 @@ VAR gate_permiss = "0"
 }
 
 === gate_2_lock ===
-{ has_key == "1":
+{ has_key == true:
     Игра: Ключ открыл ворота! Проход к яблоням свободен.
     * [Тут столько яблок!]
     -> DONE
@@ -63,11 +63,11 @@ VAR gate_permiss = "0"
 
 === guard_talk ===
 {
-    - ezh_fed == "0":
+    - ezh_fed == false:
         Робот Лиза: Еж не рассказывал мне о тебе. Я не буду с тобой говорить.
         * [Пойду поговорю с Ежом]
         -> DONE
-    - btn_active == "0":
+    - btn_active == true:
         Робот Лиза: Ворота не активированы, я не смогу их открыть, нужно нажать красную кнопку на терминале рядом с воротами.
         * [Иду к терминалу]
         -> DONE
