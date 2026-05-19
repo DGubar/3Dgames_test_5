@@ -3,7 +3,6 @@ VAR has_key = false
 VAR has_apple = false
 VAR ezh_fed = false
 VAR btn_active = false
-VAR gate_permiss = false
 
 -> start
 
